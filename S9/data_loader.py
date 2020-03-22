@@ -22,7 +22,7 @@ class Cifar10Augmentation:
     return self.transforms(image=img)['image']
 
 
-def data_loader_cifar():
+def data_loader_cifar(k=32):
    
   mean = (0.4914, 0.4822, 0.4465)
   std_dev = (0.2023, 0.1994, 0.2010)
@@ -57,7 +57,7 @@ def data_loader_cifar():
   testset = torchvision.datasets.CIFAR10(root='./data', train=False,
                                         download=True,transform=test_transforms)
                                     
-  testloader = torch.utils.data.DataLoader(testset, batch_size=32,shuffle=False, num_workers=4)
+  testloader = torch.utils.data.DataLoader(testset, batch_size=k,shuffle=True, num_workers=4)
 
   classes = ('plane', 'car', 'bird', 'cat',
             'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
