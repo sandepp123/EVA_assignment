@@ -89,4 +89,3 @@ class S11Model(nn.Module):
         
         
         
-        return x9
